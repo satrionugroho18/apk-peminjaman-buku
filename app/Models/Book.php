@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $fillable = [
-        'judul',
-        'penulis',
-        'stok'
-    ];
+    protected $fillable = ['judul', 'penulis', 'stok'];
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
 }
